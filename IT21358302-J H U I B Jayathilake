@@ -1,3 +1,24 @@
+
+//Card.h
+
+
+class card
+{
+private:
+	char cardtype[6];
+	int OTP;
+	char cardholder[10];
+	char cardnumber[10];
+	char cvc[3];
+
+public:   
+	card();
+	card(char ctype[],int otp,char cholder[], char cnum[], char ccvc[]);
+	void vertify();
+	void displays();
+	~card();
+};
+
 //Card.cpp
 
 #include"card.h"
@@ -32,24 +53,23 @@ card::~card() {
 	cout << "Destructor in process" << endl;
 }
 
-//Card.h
 
+//paypal.h
 
-class card
+class paypal
 {
 private:
-	char cardtype[6];
-	int OTP;
-	char cardholder[10];
-	char cardnumber[10];
-	char cvc[3];
+	int refno;
+	char paypalid[10];
+	char paypalpassword[10];
 
-public:   
-	card();
-	card(char ctype[],int otp,char cholder[], char cnum[], char ccvc[]);
-	void vertify();
-	void displays();
-	~card();
+public:
+	paypal();
+	paypal(int rno, char paypid[], char payppass[]);
+	~paypal();
+	void vertifying();
+	void Details();
+
 };
 
 //Paypal.cpp
@@ -80,20 +100,5 @@ void paypal::Details() {
 	cout << "Payment success" << endl;
 }
 
-//class paypal
-
-{private:
-	int refno;
-	char paypalid[10];
-	char paypalpassword[10];
-
-public:
-	paypal();
-	paypal(int rno, char paypid[], char payppass[]);
-	~paypal();
-	void vertifying();
-	void Details();
-
-};
 
 
