@@ -51,3 +51,49 @@ public:
 	void displays();
 	~card();
 };
+
+//Paypal.cpp
+
+#include "paypal.h"
+#include<cstring>
+#include<iostream>
+using namespace std;
+
+paypal::paypal() {
+	refno = 0;
+	strcpy(paypalid, "");
+	strcpy(paypalpassword, "");
+
+}
+paypal::paypal(int rno, char paypid[], char payppass[]) {
+	refno = rno;
+	strcpy(paypalid,paypid);
+	strcpy(paypalpassword,payppass);
+}
+paypal::~paypal() {
+	cout << "Destructor in process" << endl;
+}
+void paypal::vertifying() {
+	cout << "Payment vertified" << endl;
+}
+void paypal::Details() {
+	cout << "Payment success" << endl;
+}
+
+//class paypal
+
+{private:
+	int refno;
+	char paypalid[10];
+	char paypalpassword[10];
+
+public:
+	paypal();
+	paypal(int rno, char paypid[], char payppass[]);
+	~paypal();
+	void vertifying();
+	void Details();
+
+};
+
+
