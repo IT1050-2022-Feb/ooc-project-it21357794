@@ -1,7 +1,5 @@
 
-//Card.h
-
-
+//card.h
 class card
 {
 private:
@@ -19,8 +17,7 @@ public:
 	~card();
 };
 
-//Card.cpp
-
+//card.cpp
 #include"card.h"
 #include<cstring>
 #include<iostream>
@@ -53,9 +50,7 @@ card::~card() {
 	cout << "Destructor in process" << endl;
 }
 
-
 //paypal.h
-
 class paypal
 {
 private:
@@ -69,11 +64,9 @@ public:
 	~paypal();
 	void vertifying();
 	void Details();
-
 };
 
-//Paypal.cpp
-
+//paypal.cpp
 #include "paypal.h"
 #include<cstring>
 #include<iostream>
@@ -99,6 +92,3 @@ void paypal::vertifying() {
 void paypal::Details() {
 	cout << "Payment success" << endl;
 }
-
-
-
