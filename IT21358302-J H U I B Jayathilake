@@ -1,1 +1,53 @@
+//Card.cpp
 
+#include"card.h"
+#include<cstring>
+#include<iostream>
+#include "client.h"
+#include "client.cpp"
+using namespace std;
+
+card::card() {
+	strcpy(cardtype, "");
+	OTP = 0;
+	strcpy(cardholder, "");
+	strcpy(cardnumber, "");
+	strcpy(cvc, "");
+
+}
+card::card(char ctype[], int otp,char cholder[],char cnum[],char ccvc[]) {
+	strcpy(cardtype, ctype);
+	OTP = otp;
+	strcpy(cardholder,cholder);
+	strcpy(cardnumber,cnum);
+	strcpy(cvc,ccvc);
+}
+void card::vertify() {
+	cout << "Card details are correct" << endl;
+}
+void card::displays() {
+	cout << "Payment success" << endl;
+}
+card::~card() {
+	cout << "Destructor in process" << endl;
+}
+
+//Card.h
+
+
+class card
+{
+private:
+	char cardtype[6];
+	int OTP;
+	char cardholder[10];
+	char cardnumber[10];
+	char cvc[3];
+
+public:   
+	card();
+	card(char ctype[],int otp,char cholder[], char cnum[], char ccvc[]);
+	void vertify();
+	void displays();
+	~card();
+};
