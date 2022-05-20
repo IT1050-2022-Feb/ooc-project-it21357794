@@ -1,1 +1,137 @@
+//client.h
+class client
+{
+protected:
+	int client_id;
+	char client_name[20];
+	char acctype[8];
+	char username[8];
+	char Password[8];
+	char address[15];
+	char phonenumber[12];
+	int postalcode;
+	char membertype[10];
 
+public:
+	client();
+	client(int id, char name[],char actype[],char addr[], char pnumber[], int pcode);
+	~client();
+	void Register(char u_name[],char password[],char mtype[]);
+	void Editacc();
+	void Upgrade(char mtype[]);
+	void display();
+
+};
+
+//client.cpp
+#include "client.h"
+#include<cstring>
+#include <iostream>
+using namespace std;
+
+client::client() {
+	client_id = 0;
+	strcpy(client_name, "");
+	strcpy(acctype, "");
+	strcpy(username, "");
+	strcpy(Password, "");
+	strcpy(address, "");
+	strcpy(phonenumber, "");
+	postalcode = 0;
+	strcpy(membertype, "");
+
+}
+client::client(int id,char name[],char actype[],char addr[],char pnumber[],int pcode) {
+	client_id = id;
+	strcpy(client_name,name);
+	strcpy(acctype,actype);
+	strcpy(address,addr);
+	strcpy(phonenumber,pnumber);
+	postalcode = pcode;
+
+}
+client::~client() {
+	cout << ("\nDestructor in process");
+}
+void client::Register(char u_name[], char password[],char mtype[]) {
+	strcpy(username,u_name);
+	strcpy(Password,password);
+	strcpy(membertype,mtype);
+
+}
+void client::Editacc() {
+	cout << "\nEnter new account details" << endl;
+	cout << "\nEnter your account id" << endl;
+	cin >> client_id;
+	cout << "\nEnter your address:" << endl;
+	cin >> address;
+	cout << "\nEnter your acc type:" << endl;
+	cin >> acctype;
+	cout << "\nEnter your phone number:" << endl;
+	cin >> phonenumber;
+
+}
+void client::Upgrade(char mtype[]){
+	cout << "\nEnter your new member type:" << endl;
+	cin >> membertype;
+}
+void client::display() {
+	cout << "\nClient details:" << endl;
+	cout << client_id << endl;
+	cout << client_name << endl;
+	cout << address << endl;
+	cout << phonenumber << endl;
+	cout << postalcode << endl;
+	cout << acctype<< endl;
+	cout <<username<< endl;
+
+}
+
+//payment.h
+class payment
+{
+private:
+	int payment_id;
+	char payment_type[10];
+	double amount;
+	char date[10];
+public:
+	payment();
+	payment(int pid,double pamount, char pdate[],char ptype[]);
+	void validateuser();
+	void printdetails();
+	~payment();
+};
+
+//payment.cpp
+#include "payment.h"
+#include <cstring>
+#include <iostream>
+#include "client.h"
+using namespace std;
+
+payment::payment() {
+	payment_id = 0;;
+	strcpy(payment_type,"");
+	amount=0;
+	strcpy(date,"");
+}
+payment::payment(int pid, double pamount, char pdate[], char ptype[]) {
+	payment_id = pid;;
+	strcpy(payment_type,ptype);
+	amount = pamount;
+	strcpy(date,pdate);
+}
+
+void payment::validateuser(){
+	cout << "Validated successfully" << endl;
+}
+void payment::printdetails() {
+	cout << date << endl;
+	cout << amount << endl;
+	cout << payment_type << endl;
+	cout << payment_id << endl;
+}
+payment::~payment() {
+	cout << "Destructor in process" << endl;
+}
