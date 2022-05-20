@@ -1,0 +1,99 @@
+//Report.h
+
+class Report
+{
+private:
+
+	int report_id;
+	char report_type[10];
+
+public:
+
+	Report();
+	Report(int repid,char reptype[]);
+	~Report();
+	void Display();
+	void update();
+
+};
+
+
+
+
+//Report.cpp
+
+#include "Report.h"
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+Report::Report() {
+	report_id = 0;
+	strcpy(report_type,"");
+
+}
+Report::Report(int repid, char reptype[]) {
+	report_id = repid;
+	strcpy(report_type,reptype);
+}
+Report::~Report() {
+	cout << "Destructor in process" << endl;
+}
+void Report::Display() {
+	cout << report_id << endl;
+	cout << report_type << endl;
+}
+void Report::update() {
+	cin >> report_id;
+	cin >> report_type;
+}
+
+
+
+
+
+//Report ownership.h
+
+class Report_ownership
+{
+
+private:
+	int report_id;
+	char report_ownershiptype[20];
+
+public:
+	Report_ownership();
+	Report_ownership(int ro_id,char ro_type[]);
+	~Report_ownership();
+	void display();
+
+};
+
+
+
+
+
+//Report_ownership.cpp
+
+#include "Report_ownership.h"
+#include<cstring>
+#include<iostream>
+using namespace std;
+
+Report_ownership::Report_ownership() {
+	report_id = 0;
+	strcpy(report_ownershiptype,"");
+}
+Report_ownership::Report_ownership(int ro_id, char ro_type[]) {
+	report_id = ro_id;
+	strcpy(report_ownershiptype,ro_type);
+}
+Report_ownership::~Report_ownership() {
+	cout << "Destructon in process" << endl;
+}
+void Report_ownership:: display() {
+	cout <<"Report id:"<< report_id << endl;
+	cout << "Report owner type:" << report_ownershiptype << endl;
+
+}
+
